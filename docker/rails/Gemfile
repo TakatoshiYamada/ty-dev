@@ -1,0 +1,35 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby '3.0.2' # Rubyのバージョン
+
+# Rails本体
+gem 'rails', '~> 7.0.6'
+
+# データベース
+gem 'mysql2', '>= 0.5.3'
+
+# フロントエンド
+# 今回はMVCモデルを使用するとのことで特にgemは追加していません。
+
+# その他の主要なgem
+gem 'puma', '~> 5.5' # ウェブサーバー
+
+group :development, :test do
+  gem 'debug', require: false  # Ruby 3で追加されたデバッグ機能
+end
+
+group :development do
+  gem 'listen', '~> 3.7' # ファイルの変更を監視
+  gem 'rubocop', require: false # コード解析ツール
+  gem 'rubocop-rails', require: false # Rails用コード解析
+end
+
+group :test do
+  gem 'capybara', '>= 3.26' # システムテスト用
+  gem 'webdrivers' # ウェブドライバ
+end
+
+# その他、必要なgemを追加してください。

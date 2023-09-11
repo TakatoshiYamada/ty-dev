@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:1.21.6
+    ports:
+      - 8000:80
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - rails
+
+  rails:
+    build: ./rails # RailsアプリケーションのDockerfileがあるディレクトリを指定
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - 3000:3000
+    volumes:
+      - ./rails:/opt/ty-dev
+    working_dir: /opt/ty-dev
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0.29
+    platform: linux/x86_64
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+    volumes:
+      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./mysql/conf.d/charset.cnf:/etc/mysql/conf.d/charset.cnf
