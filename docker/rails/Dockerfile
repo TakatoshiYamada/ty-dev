@@ -11,14 +11,14 @@ RUN mkdir /opt/ty-dev
 WORKDIR /opt/ty-dev
 
 # ホストのGemfileとGemfile.lockをコピー
-COPY Gemfile /opt/myapp/Gemfile
-COPY Gemfile.lock /opt/myapp/Gemfile.lock
+COPY Gemfile /opt/ty-dev/Gemfile
+COPY Gemfile.lock /opt/ty-dev/Gemfile.lock
 
 # BundlerでGemをインストール
 RUN bundle install
 
 # その他のアプリケーションファイルをコピー
-COPY . /opt/myapp
+COPY . /opt/ty-dev
 
 # コンテナが起動する際に実行されるコマンドを指定
 CMD ["bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0"]

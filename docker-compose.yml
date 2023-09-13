@@ -6,18 +6,17 @@ services:
     ports:
       - 8000:80
     volumes:
-      - ./nginx/html:/usr/share/nginx/html
-      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - rails
 
   rails:
-    build: ./rails # RailsアプリケーションのDockerfileがあるディレクトリを指定
+    build: ./docker/rails # RailsアプリケーションのDockerfileがあるディレクトリを指定
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     ports:
       - 3000:3000
     volumes:
-      - ./rails:/opt/ty-dev
+      - ./docker/rails:/opt/ty-dev
     working_dir: /opt/ty-dev
     depends_on:
       - mysql
@@ -28,5 +27,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: admin
     volumes:
-      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-      - ./mysql/conf.d/charset.cnf:/etc/mysql/conf.d/charset.cnf
+      # initdb.dに配置したSQLが実行される。後ほど用意する。
+      # - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./docker/mysql/conf.d/charset.cnf:/etc/mysql/conf.d/charset.cnf
