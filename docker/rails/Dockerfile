@@ -1,5 +1,5 @@
 # ベースとなるRubyのイメージを指定
-FROM ruby:3.0.2
+FROM ruby:3.2.1
 
 # 必要なパッケージをインストール
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
@@ -22,3 +22,7 @@ COPY . /opt/ty-dev
 
 # コンテナが起動する際に実行されるコマンドを指定
 CMD ["bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0"]
+
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
