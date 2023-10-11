@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   # 管理画面
   namespace :admin do
-    resources :dashboards
+    resources :dashboards, only: [:index]
   end
 end
