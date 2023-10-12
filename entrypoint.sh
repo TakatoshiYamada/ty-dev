@@ -12,7 +12,11 @@ bundle exec rails db:prepare
 if [ ! -f '/opt/ty-dev/node_modules/.yarn-integrity' ]; then
   yarn install
   # JavaScriptのセットアップ
-  /opt/ty-dev/bin/importmap pin @hotwired/turbo-rails
+  # importmapの設定ファイルが存在しない場合のみ、セットアップを実行
+  if [ ! -f "config/importmap.rb" ]; then
+    bin/rails importmap:install
+    /opt/ty-dev/bin/importmap pin @hotwired/turbo-rails
+  fi
 fi
 # コマンドの実行
 exec "$@"
