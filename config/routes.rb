@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   # Defines the articles resource routes
   # Add: アカウント新規登録を無効化
-  devise_for :users, skip: [:registrations]
+  devise_for :users, skip: [:registrations], controllers: {
+    sessions: 'users/sessions'
+  }
 
   # 管理画面
   namespace :admin do
