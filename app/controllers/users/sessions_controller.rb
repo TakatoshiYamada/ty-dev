@@ -27,6 +27,6 @@ class Users::SessionsController < Devise::SessionsController
 
   def after_sign_in_path_for(resource)
     # ここにログイン後に遷移させたいパスを書く
-    dashboard_path  # 例: ダッシュボードへリダイレクト
+    admin_dashboards_path # 例: ダッシュボードへリダイレクト
   end
 end
