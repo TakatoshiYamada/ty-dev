@@ -25,6 +25,14 @@ RUN bundle install
 # その他のアプリケーションファイルをコピー
 COPY . /opt/ty-dev
 
+# Yarnのインストール
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install -y yarn
+
+# JavaScriptのライブラリをインストール
+RUN yarn add @rails/ujs
+
 # コンテナが起動する際に実行されるコマンドを指定
 CMD ["bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0"]
 

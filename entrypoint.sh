@@ -10,10 +10,7 @@ bundle exec rails db:prepare
 # seedデータのロード
 bundle exec rails db:seed
 
-# 初回起動時にyarn installを実行
-# 新しい依存関係を追加するたびに、手動でdocker-compose run web yarn install
 if [ ! -f '/opt/ty-dev/node_modules/.yarn-integrity' ]; then
-  yarn install
   # JavaScriptのセットアップ
   # importmapの設定ファイルが存在しない場合のみ、セットアップを実行
   if [ ! -f "config/importmap.rb" ]; then
