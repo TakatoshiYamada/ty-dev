@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   # Defines the articles resource routes
-  # Add: アカウント新規登録を無効化
   devise_for :users,
+    # Add: アカウント新規登録を無効化
     skip: [:registrations],
+    # Add: ログイン・ログアウト後のルーティングを変更
+    # Notes: Users::SessionsController < Devise::SessionsControllerにて定義
     controllers: {
       sessions: 'users/sessions'
     }
