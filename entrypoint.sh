@@ -4,6 +4,13 @@ set -e
 # Remove a potentially pre-existing server.pid for Rails.
 rm -f /opt/ty-dev/tmp/pids/server.pid
 
+# MySQLが起動するまで待つ
+echo "Waiting for MySQL..."
+while ! mysqladmin ping -h"mysql" --silent; do
+    sleep 1
+done
+echo "MySQL is up and running!"
+
 # Railsサービスが起動する前にデータベースが存在するか確認して、存在しない場合は作成する
 bundle exec rails db:prepare
 
