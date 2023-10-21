@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'blogs/index'
+  get 'blogs/show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -16,6 +18,12 @@ Rails.application.routes.draw do
 
   # 管理画面
   namespace :admin do
+    # topページ
     resources :dashboards, only: [:index]
+    # ブログ記事管理
+    resources :blogs, except: [:index, :show]
   end
+
+  # ブログ記事表示
+  resources :blogs, only: [:index, :show]
 end
