@@ -8,12 +8,10 @@ p
   br
   | Member since: #{current_user.created_at.strftime('%Y-%m-%d')}
 
-h2 Your Blog Posts
-- @blogs.each do |blog|
-  div
-    h3 = link_to blog.title, blog_path(blog)
-    p = truncate(blog.content, length: 100)
-    = link_to 'Edit', edit_blog_path(blog)
-    = link_to 'Delete', blog_path(blog), method: :delete, data: { confirm: "Are you sure?" }
+/ ブログ機能
+h2 Blog
+  / ブログ一覧
 
-= link_to 'New Blog Post', new_admin_blog_path
+/ 写真ポートフォリオ
+h2 Photograph Portfolio
+  / まだ開発しない
