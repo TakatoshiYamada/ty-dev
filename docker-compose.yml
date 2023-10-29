@@ -9,6 +9,7 @@ services:
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - rails
+    restart: always
 
   rails:
     build: .
@@ -20,6 +21,7 @@ services:
     working_dir: /opt/ty-dev
     depends_on:
       - mysql
+    restart: always
 
   mysql:
     image: mysql:8.0.29
@@ -30,3 +32,4 @@ services:
       # initdb.dに配置したSQLが実行される。後ほど用意する。
       # - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - ./docker/mysql/conf.d/charset.cnf:/etc/mysql/conf.d/charset.cnf
+    restart: always
