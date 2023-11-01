@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  get 'blogs/index'
-  get 'blogs/show'
+  get 'home/index'
+
+  # ホーム画面の表示
+  root to: 'home#index'
+
+  # deviseによる認証機能のルーティングを自動生成
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -16,21 +20,14 @@ Rails.application.routes.draw do
       sessions: 'users/sessions'
     }
 
-  # ランディングページ表示
-  resources :landing_pages, only: [:index]
-
   # ブログ記事表示
   # 一般ユーザーが閲覧する
   resources :blogs, only: [:index, :show]
 
   # 管理画面
   namespace :admin do
-    # topページ
     # 各種管理画面へのリンクを表示する
     resources :dashboards, only: [:index]
-    # ランディングページ管理
-    # ランディングページの編集・削除を行う
-    resources :landing_pages, only: [:index, :edit, :update, :destroy]
     # ブログ管理
     resources :blogs
   end
