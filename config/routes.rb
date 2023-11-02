@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'home/index'
-
-  # ホーム画面の表示
-  root to: 'home#index'
 
   # deviseによる認証機能のルーティングを自動生成
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -20,16 +16,24 @@ Rails.application.routes.draw do
       sessions: 'users/sessions'
     }
 
-  # ブログ記事表示
-  # 一般ユーザーが閲覧する
-  resources :blogs, only: [:index, :show]
+  # 一般ユーザー用のルーティング
+  # ホーム画面表示
+  root to: 'home#index'
 
-  # 管理画面
+  # ブログ記事表示
+  resources :blogs, only: [:index, :show] do
+    resources :articles, only: [:index, :show]
+  end
+
+  # 管理者用のルーティング
   namespace :admin do
-    # 各種管理画面へのリンクを表示する
+    # 管理画面ダッシュボード
+    # 各種管理画面へのリンク
     resources :dashboards, only: [:index]
-    # ブログ管理
-    resources :blogs
+    # ブログと記事の管理
+    resources :blogs do
+      resources :articles
+    end
   end
 
 end
