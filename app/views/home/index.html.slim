@@ -21,6 +21,9 @@ p 作者のブログやポートフォリオをまとめたサイトです。
 
 h2 ブログ
 ul
-  - @blogs.each do |blog|
-    li
-      = link_to blog.title, blog_path(blog)
+  - if @blogs.present?
+    - @blogs.each do |blog|
+      li
+        = link_to blog.title, blog_path(blog)
+  - else
+    li まだブログがありません
