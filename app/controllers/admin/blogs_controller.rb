@@ -20,6 +20,7 @@ class Admin::BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
+    @blog.user = current_user
     if @blog.save
       redirect_to [:admin, @blog], notice: 'Blog was successfully created.'
     else
@@ -47,11 +48,10 @@ class Admin::BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :content)
+    params.require(:blog).permit(:name, :description)
   end
 
   def check_admin
     redirect_to(root_url) unless current_user.admin?
   end
 end
-1
