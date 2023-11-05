@@ -1,2 +1,23 @@
-h1 Admin::Blogs#new
-p Find me in app/views/admin/blogs/new.html.slim
+h1 New Blog Post
+
+= form_with(model: @blog, url: admin_blogs_path, local: true) do |form|
+  = render 'commons/error_messages', object: @blog
+
+  .field
+    = form.label :title
+    = form.text_field :title
+
+  .field
+    = form.label :description
+    = form.text_area :description
+
+  .field
+    = form.label :category
+    = form.select :category, Blog.categories.keys.map { |category| [category.titleize, category] }
+
+  .field
+    = form.label :image
+    = form.file_field :image
+
+  .actions
+    = form.submit 'Save'
