@@ -24,6 +24,6 @@ ul
   - if @blogs.present?
     - @blogs.each do |blog|
       li
-        = link_to blog.title, blog_path(blog)
+        = link_to blog.name, blog_path(blog)
   - else
     li まだブログがありません
