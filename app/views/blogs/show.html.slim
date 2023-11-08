@@ -1,2 +1,8 @@
-h1 Blogs#show
-p Find me in app/views/blogs/show.html.slim
+h1 = @blog.name
+
+- if @blog.articles.present?
+  - @blog.articles.each do |article|
+    h2 = article.title
+    p = article.content
+- else
+  h2 = "No article"
