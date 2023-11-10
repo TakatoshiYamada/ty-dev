@@ -9,4 +9,6 @@ html
     = javascript_importmap_tags
 
   body
+    div id="flash"
+      = render 'commons/flash', flash: flash
     = yield

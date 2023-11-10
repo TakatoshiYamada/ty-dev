@@ -22,7 +22,7 @@ class Admin::BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
     @blog.user = current_user
     if @blog.save
-      redirect_to [:admin, @blog], notice: 'Blog was successfully created.'
+      redirect_to admin_blogs_url, notice: 'Blog was successfully created.'
     else
       render :new
     end
@@ -38,10 +38,7 @@ class Admin::BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    respond_to do |format|
-      format.turbo_stream
-      format.html { redirect_to admin_blogs_url, status: :see_other, notice: 'Blog was successfully destroyed.' }
-    end
+    redirect_to admin_blogs_url, status: :see_other, notice: 'Blog was successfully destroyed.'
   end
 
   private

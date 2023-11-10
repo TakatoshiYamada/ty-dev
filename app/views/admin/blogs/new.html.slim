@@ -4,17 +4,17 @@ h1 New Blog Post
   = render 'commons/error_messages', object: @blog
 
   .field
-    = form.label :name
-    = form.text_field :name
+    p = form.label :name
+    p = form.text_field :name
 
   .field
-    = form.label :description
-    = form.text_area :description
+    p = form.label :description
+    p = form.text_area :description
 
   .field
-    = form.label :image
-    = form.file_field :image
+    p = form.label :image
+    p = form.file_field :image
 
   .actions
-    = form.submit 'Save'
-    = link_to 'Back', admin_blogs_path, class: 'button'
+    p = form.submit 'Save'
+    p = link_to 'Back', admin_blogs_path, class: 'button'
