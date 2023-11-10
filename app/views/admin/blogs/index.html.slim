@@ -8,7 +8,7 @@ h1 ブログ管理機能
   / ブログを編集するためのリンク
   p = link_to 'Edit', edit_admin_blog_path(blog)
   / ブログを削除するためのリンク
-  p = link_to 'Delete', admin_blog_path(blog), method: :delete, data: { confirm: 'Are you sure?' }
+  p = link_to 'Delete', admin_blog_path(blog), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
 
 / 新規ブログ作成
 h2 = link_to 'New Blog', new_admin_blog_path, class: 'button'

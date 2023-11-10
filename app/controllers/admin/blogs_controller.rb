@@ -38,7 +38,10 @@ class Admin::BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to admin_blogs_url, notice: 'Blog was successfully destroyed.'
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to admin_blogs_url, status: :see_other, notice: 'Blog was successfully destroyed.' }
+    end
   end
 
   private
