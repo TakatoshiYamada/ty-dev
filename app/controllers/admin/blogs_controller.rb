@@ -1,5 +1,5 @@
 # app/controllers/admin/blogs_controller.rb
-class Admin::BlogsController < ApplicationController
+class Admin::BlogsController < AdminController
   before_action :authenticate_user!
   before_action :check_admin
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
@@ -51,7 +51,4 @@ class Admin::BlogsController < ApplicationController
     params.require(:blog).permit(:name, :description, :header_image, :user_id)
   end
 
-  def check_admin
-    redirect_to(root_url) unless current_user.admin?
-  end
 end
