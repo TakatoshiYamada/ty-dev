@@ -48,7 +48,7 @@ class Admin::BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:name, :description)
+    params.require(:blog).permit(:name, :description, :header_image, :user_id)
   end
 
   def check_admin
