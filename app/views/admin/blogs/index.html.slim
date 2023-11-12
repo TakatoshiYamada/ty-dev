@@ -5,6 +5,9 @@ h1 ブログ管理機能
 - @blogs.each do |blog|
   h2 = blog.name
   h3 = blog.description
+  
+  / 記事を編集するためのリンク
+  p = link_to 'Manage Articles', admin_blog_articles_path(blog)
   / ブログを編集するためのリンク
   p = link_to 'Edit', edit_admin_blog_path(blog)
   / ブログを削除するためのリンク
@@ -12,3 +15,4 @@ h1 ブログ管理機能
 
 / 新規ブログ作成
 h2 = link_to 'New Blog', new_admin_blog_path, class: 'button'
+p = link_to 'Back', admin_dashboards_path, class: 'button'

@@ -30,10 +30,13 @@ Rails.application.routes.draw do
     # 管理画面ダッシュボード
     # 各種管理画面へのリンク
     resources :dashboards, only: [:index]
-    # ブログと記事の管理
+    # ブログの管理
     resources :blogs do
+      # 記事の管理
       resources :articles
     end
+    # ユーザーの管理
+    resources :users
   end
 
 end
