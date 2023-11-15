@@ -22,7 +22,7 @@ services:
     depends_on:
       - mysql
     restart: always
-    ## 以下2行を追記
+    ## bining.breakでデバッグするために必要
     stdin_open: true
     tty: true
 

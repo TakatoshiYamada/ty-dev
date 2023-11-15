@@ -5,8 +5,7 @@ class Admin::ArticlesController < AdminController
   before_action :set_article, only: [:edit, :update]
 
   def index
-    binding.break
-    @blogs = Blog.all
+    @articles = @blog.articles
   end
 
   def new
@@ -14,10 +13,19 @@ class Admin::ArticlesController < AdminController
   end
 
   def create
+    if @blog.articles.create(article_params)
+      redirect_to admin_blog_articles_path(@blog), notice: 'Article was successfully created.'
+    else
+      render :new
+    end
   end
 
   def edit
-    # 編集用のアクション
+    if @article.nil?
+      redirect_to admin_blog_articles_path(@blog), alert: 'Article not found.'
+    else
+      render :edit
+    end
   end
 
   def update
@@ -39,6 +47,6 @@ class Admin::ArticlesController < AdminController
   end
 
   def article_params
-    params.require(:article).permit(:title, :content, :その他の属性...)
+    params.require(:article).permit(:title, :content, :image)
   end
 end
