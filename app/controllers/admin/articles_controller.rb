@@ -13,7 +13,8 @@ class Admin::ArticlesController < AdminController
   end
 
   def create
-    if @blog.articles.create(article_params)
+     @article = @blog.articles.create(article_params)
+    if @article.save
       redirect_to admin_blog_articles_path(@blog), notice: 'Article was successfully created.'
     else
       render :new

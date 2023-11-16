@@ -7,13 +7,13 @@ h1 Articles for "#{@blog.name}"
     thead
       tr
         th Title
-        th Description
+        th Content
         th Actions
     tbody
       - @blog.articles.each do |article|
         tr
           td = article.title
-          td = article.description
+          td = article.content
           td
             = link_to 'Edit', edit_admin_blog_article_path(@blog, article)
             = ' | '
