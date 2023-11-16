@@ -8,9 +8,9 @@ p
   br
   | Member since: #{current_user.created_at.strftime('%Y-%m-%d')}
 
-/ ブログ機能
-h2 Blog
-  / ブログ一覧
+/ ブログ機能 管理
+h2 Blogs
+= link_to 'Blog List', admin_blogs_path
 
 / 写真ポートフォリオ
 h2 Photograph Portfolio

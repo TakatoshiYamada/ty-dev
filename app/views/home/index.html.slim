@@ -1,0 +1,29 @@
+h1 ty-dev
+
+.author-info
+  h2 作者
+  p 山田 貴俊 / Takatoshi Yamada
+
+h2 このサイトについて
+p 作者のブログやポートフォリオをまとめたサイトです。
+
+.social-links
+  h2 SNS
+  ul
+    li
+      = link_to 'X/Twitter', 'https://twitter.com/ty__tw', target: '_blank'
+    li
+      = link_to 'GitHub', 'https://github.com/TakatoshiYamada', target: '_blank'
+    li
+      = link_to 'Instagram', 'https://www.instagram.com/ty___igth/', target: '_blank'
+    li
+      = link_to 'Threads', 'https://www.threads.net/@ty___igth', target: '_blank'
+
+h2 ブログ
+ul
+  - if @blogs.present?
+    - @blogs.each do |blog|
+      li
+        = link_to blog.name, blog_path(blog)
+  - else
+    li まだブログがありません

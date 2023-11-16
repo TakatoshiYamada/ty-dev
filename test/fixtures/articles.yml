@@ -2,10 +2,12 @@
 
 one:
   title: MyString
-  body: MyText
+  content: MyText
   image: MyString
+  blog: one
 
 two:
   title: MyString
-  body: MyText
+  content: MyText
   image: MyString
+  blog: two

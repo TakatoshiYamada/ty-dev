@@ -1,0 +1,4 @@
+- if flash.any?
+  div id="flash"
+    - flash.each do |type, message|
+      div class="flash #{type}" = message
