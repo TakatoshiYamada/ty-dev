@@ -2,7 +2,7 @@ class Admin::ArticlesController < AdminController
   before_action :authenticate_user!
   before_action :check_admin
   before_action :set_blog
-  before_action :set_article, only: [:edit, :update]
+  before_action :set_article, only: [:edit, :update, :destroy]
 
   def index
     @articles = @blog.articles
@@ -37,7 +37,7 @@ class Admin::ArticlesController < AdminController
     end
   end
 
-  def delete
+  def destroy
     if @article.destroy
       redirect_to admin_blog_articles_path(@blog), notice: 'Article was successfully deleted.'
     else

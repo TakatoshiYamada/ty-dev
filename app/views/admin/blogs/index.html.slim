@@ -5,7 +5,7 @@ h1 ブログ管理機能
 - @blogs.each do |blog|
   h2 = blog.name
   h3 = blog.description
-  
+
   / 記事を編集するためのリンク
   p = link_to 'Manage Articles', admin_blog_articles_path(blog)
   / ブログを編集するためのリンク
