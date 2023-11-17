@@ -37,6 +37,14 @@ class Admin::ArticlesController < AdminController
     end
   end
 
+  def delete
+    if @article.destroy
+      redirect_to admin_blog_articles_path(@blog), notice: 'Article was successfully deleted.'
+    else
+      redirect_to admin_blog_articles_path(@blog), alert: 'Article was not deleted.'
+    end
+  end
+
   private
 
   def set_blog
