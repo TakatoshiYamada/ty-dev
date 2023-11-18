@@ -3,6 +3,9 @@ h1 Articles for "#{@blog.name}"
 - if @blog.articles.empty?
   p No articles yet. #{link_to 'Create Article', new_admin_blog_article_path(@blog)}
 - else
+
+  p = link_to 'Create Article', new_admin_blog_article_path(@blog)
+
   table
     thead
       tr
