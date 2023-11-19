@@ -1,20 +1,3 @@
+/ app/views/admin/blogs/new.html.slim
 h1 New Blog Post
-
-= form_with(model: @blog, url: admin_blogs_path, local: true) do |form|
-  = render 'commons/error_messages', object: @blog
-
-  .field
-    p = form.label :name
-    p = form.text_field :name
-
-  .field
-    p = form.label :description
-    p = form.text_area :description
-
-  .field
-    p = form.label :image
-    p = form.file_field :image
-
-  .actions
-    p = form.submit 'Save'
-    p = link_to 'Back', admin_blogs_path, class: 'button'
+= render 'form'

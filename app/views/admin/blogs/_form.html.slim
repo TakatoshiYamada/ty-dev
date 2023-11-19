@@ -1,0 +1,19 @@
+/ app/views/admin/blogs/_form.html.slim
+= form_with(model: @blog, local: true) do |form|
+  = render 'commons/error_messages', object: @blog
+
+  .field
+    p = form.label :name
+    p = form.text_field :name
+
+  .field
+    p = form.label :description
+    p = form.text_area :description
+
+  .field
+    p = form.label :header_image
+    p = form.file_field :header_image
+
+  .actions
+    p = form.submit 'Save'
+    p = link_to 'Back', admin_blogs_path, class: 'button'
