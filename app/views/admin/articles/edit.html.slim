@@ -1,19 +1,3 @@
-h1 Edit Article
+h1 Edit Article for "#{@blog.name}"
 
-= form_with(model: [@blog, @article], local: true) do |form|
-  .field
-    = form.label :title
-    = form.text_field :title
-
-  .field
-    = form.label :content
-    = form.text_area :content
-
-  .field
-    = form.label :image
-    = form.file_field :image
-
-  .actions
-    = form.submit 'Update Article'
-
-= link_to 'Back', admin_blog_articles_path(@blog)
+= render 'form'
