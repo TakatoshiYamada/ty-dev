@@ -1,0 +1,13 @@
+/ app/views/admin/articles/show.html.slim
+
+h1 = @article.title
+p.date
+  | Posted on
+  = @article.created_at.strftime("%Y-%m-%d %H:%M")
+
+h2 = @article.content
+
+p = link_to 'Edit', edit_admin_blog_article_path(@blog, @article)
+p = link_to 'Delete', admin_blog_article_path(@blog, @article), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'button'
+
+p = link_to 'Back to Articles', admin_blog_articles_path(@blog)

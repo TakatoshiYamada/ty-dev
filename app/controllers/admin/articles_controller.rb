@@ -2,10 +2,13 @@ class Admin::ArticlesController < AdminController
   before_action :authenticate_user!
   before_action :check_admin
   before_action :set_blog
-  before_action :set_article, only: [:edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
     @articles = @blog.articles
+  end
+
+  def show
   end
 
   def new
