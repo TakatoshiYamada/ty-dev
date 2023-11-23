@@ -7,5 +7,6 @@ class Article < ApplicationRecord
   validates :content, presence: true
 
   # 画像のアップロードにActiveStorageを使用する場合
-  has_one_attached :image
+  has_one_attached :thumbnail
+  has_many_attached :images
 end
