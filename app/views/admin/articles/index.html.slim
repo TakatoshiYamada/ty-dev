@@ -9,14 +9,18 @@ h1 Articles for "#{@blog.name}"
   table
     thead
       tr
+        th Thumbnail
         th Title
         th Content
         th Actions
     tbody
       - @blog.articles.each do |article|
         tr
+          td
+            - if article.thumbnail.attached?
+              = image_tag article.thumbnail.variant(resize: "100x100"), alt: "Thumbnail for #{article.title}"
           td = article.title
-          td = article.content
+          td = truncate(article.content, length: 100)
           td
             = link_to 'Show', admin_blog_article_path(@blog, article), class: 'button'
             = ' | '

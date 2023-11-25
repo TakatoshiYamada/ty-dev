@@ -1,5 +1,5 @@
 / app/views/admin/blogs/_form.html.slim
-= form_with(model: @blog, local: true) do |form|
+= form_with(model: [:admin, @blog], local: true) do |form|
   = render 'commons/error_messages', object: @blog
 
   .field

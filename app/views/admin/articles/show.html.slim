@@ -2,9 +2,9 @@
 
 h1 = @article.title
 
-- if @article.image_url.present?
+- if @article.thumbnail.attached?
   .thumbnail
-    = image_tag @article.image_url, alt: "Thumbnail for #{@article.title}"
+    = image_tag @article.thumbnail, alt: "Thumbnail for #{@article.title}"
 
 p.date
   | Posted on
@@ -12,9 +12,10 @@ p.date
 
 h2 = @article.content
 
-- if @article.image.present?
-  .article-image
-    = image_tag @article.image, alt: "Image for #{@article.title}"
+- if @article.images.attached?
+  .article-images
+    - @article.images.each do |image|
+      = image_tag image, alt: "Article Image"
 
 p = link_to 'Edit', edit_admin_blog_article_path(@blog, @article)
 p = link_to 'Delete', admin_blog_article_path(@blog, @article), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'button'

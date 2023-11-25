@@ -10,8 +10,12 @@
     = form.text_area :content
 
   .field
-    = form.label :image
-    = form.file_field :image
+    = form.label :thumbnail
+    = form.file_field :thumbnail
+
+  .field
+    = form.label :images
+    = form.file_field :images, multiple: true
 
   .actions
     = form.submit 'Update Article'
