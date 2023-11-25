@@ -2,7 +2,11 @@
 FROM ruby:3.2.1
 
 # 必要なパッケージをインストール
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs default-mysql-client
+RUN apt-get update -qq && \
+    apt-get install -y build-essential \
+                       libpq-dev nodejs \
+                       default-mysql-client \
+                       imagemagick
 
 # Yarnのインストール
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
