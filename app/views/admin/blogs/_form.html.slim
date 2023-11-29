@@ -12,6 +12,9 @@
 
   .field
     p = form.label :header_image
+    - if @blog.header_image.attached?
+    .header_image
+      = image_tag @blog.header_image, alt: "Thumbnail for #{@blog.name}"
     p = form.file_field :header_image
 
   .actions
