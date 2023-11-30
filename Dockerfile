@@ -29,6 +29,9 @@ RUN bundle install
 # その他のアプリケーションファイルをコピー
 COPY . /opt/ty-dev
 
+# Yarnを使ってTailwind CSSと依存パッケージをインストール
+RUN yarn add tailwindcss postcss autoprefixer
+
 # コンテナが起動する際に実行されるコマンドを指定
 CMD ["bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0"]
 
