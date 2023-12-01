@@ -1,0 +1,7 @@
+{
+  "name": "ty-dev",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:TakatoshiYamada/ty-dev.git",
+  "license": "MIT"
+}
