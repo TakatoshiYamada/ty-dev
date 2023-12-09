@@ -9,7 +9,7 @@ RUN apt-get update -qq && \
                        imagemagick
 
 # Node.jsのソースリストを追加し、Node.jsをインストール
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs
 
 # Yarnのインストール
