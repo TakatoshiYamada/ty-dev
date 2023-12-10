@@ -30,11 +30,14 @@ COPY Gemfile.lock /opt/ty-dev/Gemfile.lock
 # BundlerでGemをインストール
 RUN bundle install
 
+# ホストのpackage.jsonとyarn.lockをコピー
+COPY package.json yarn.lock /opt/ty-dev/
+
+# Yarnでnpmパッケージをインストール
+RUN yarn install
+
 # その他のアプリケーションファイルをコピー
 COPY . /opt/ty-dev
-
-# Yarnを使ってTailwind CSSと依存パッケージをインストール
-RUN yarn add tailwindcss postcss autoprefixer
 
 # コンテナが起動する際に実行されるコマンドを指定
 CMD ["bundle", "exec", "rails", "s", -p", "3000", "-b", "0.0.0.0"]
