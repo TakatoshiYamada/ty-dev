@@ -1,3 +1,5 @@
+/ app/views/admin/blogs/index.html.slim
+
 h1 ブログ管理機能
 
 / ブログ一覧
@@ -5,9 +7,13 @@ h1 ブログ管理機能
 - @blogs.each do |blog|
   h2 = blog.name
   h3 = blog.description
-  
+
   / 記事を編集するためのリンク
   p = link_to 'Manage Articles', admin_blog_articles_path(blog)
+
+  / ブログを参照するためのリンク
+  p = link_to 'Show', admin_blog_path(blog)
+
   / ブログを編集するためのリンク
   p = link_to 'Edit', edit_admin_blog_path(blog)
   / ブログを削除するためのリンク

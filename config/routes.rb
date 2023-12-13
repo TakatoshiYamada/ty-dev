@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   # ブログ記事表示
   resources :blogs, only: [:index, :show] do
-    resources :articles, only: [:index, :show]
+    resources :articles, only: [:show]
   end
 
   # 管理者用のルーティング

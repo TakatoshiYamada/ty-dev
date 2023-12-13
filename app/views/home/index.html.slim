@@ -1,29 +1,31 @@
-h1 ty-dev
+div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4"
+  h1 class="text-4xl font-extrabold text-primary mb-8 underline" site_name
+  / TODO: このサイト名を動的に変更する
+  / h1.text-4xl.font-extrabold.text-primary.mb-8 @site.name
 
-.author-info
-  h2 作者
-  p 山田 貴俊 / Takatoshi Yamada
+div class="card card-compact w-96 bg-base-100 shadow-xl"
+  div class="card-body"
+    h2 class="card-title" 作者: user
+    / TODO: このユーザー名を動的に変更する
+    / p = @blogs.first.user.name
 
-h2 このサイトについて
-p 作者のブログやポートフォリオをまとめたサイトです。
+div class="social-links mt-8 mb-12"
+  h2 class="text-xl font-semibold text-gray-700 mb-4" SNS
+  ul class="flex space-x-4"
+    li
+      = link_to 'Twitter', '#', target: '_blank', class: 'btn btn-outline btn-accent'
+    li
+      = link_to 'GitHub', '#', target: '_blank', class: 'btn btn-outline btn-accent'
+    li
+      = link_to 'Instagram', '#', target: '_blank', class: 'btn btn-outline btn-accent'
+    li
+      = link_to 'その他のSNS', '#', target: '_blank', class: 'btn btn-outline btn-accent'
 
-.social-links
-  h2 SNS
-  ul
-    li
-      = link_to 'X/Twitter', 'https://twitter.com/ty__tw', target: '_blank'
-    li
-      = link_to 'GitHub', 'https://github.com/TakatoshiYamada', target: '_blank'
-    li
-      = link_to 'Instagram', 'https://www.instagram.com/ty___igth/', target: '_blank'
-    li
-      = link_to 'Threads', 'https://www.threads.net/@ty___igth', target: '_blank'
-
-h2 ブログ
-ul
+h2 class="text-xl font-semibold text-gray-700 mb-4" ブログ
+ul class="list-disc pl-5 mb-8"
   - if @blogs.present?
     - @blogs.each do |blog|
-      li
-        = link_to blog.name, blog_path(blog)
+      li class="mb-2"
+        = link_to blog.name, blog_path(blog), class: 'link link-hover'
   - else
-    li まだブログがありません
+    li class="text-gray-600" まだブログがありません

@@ -1,18 +1,3 @@
+/ app/views/admin/blogs/edit.html.slim
 h1 Edit Blog
-
-= form_with(model: @blog, url: admin_blog_path(@blog), method: :put, local: true) do |form|
-  .field
-    p = form.label :title
-    p = form.text_field :title
-
-  .field
-    p = form.label :description
-    p = form.text_area :description
-
-  .field
-    p = form.label :header_image
-    p = form.file_field :header_image
-
-  .actions
-    p = form.submit 'Update Blog'
-    p = link_to 'Back', admin_blogs_path, class: 'button'
+= render 'form'

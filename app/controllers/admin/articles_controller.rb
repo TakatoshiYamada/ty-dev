@@ -2,10 +2,13 @@ class Admin::ArticlesController < AdminController
   before_action :authenticate_user!
   before_action :check_admin
   before_action :set_blog
-  before_action :set_article, only: [:edit, :update]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
     @articles = @blog.articles
+  end
+
+  def show
   end
 
   def new
@@ -37,6 +40,14 @@ class Admin::ArticlesController < AdminController
     end
   end
 
+  def destroy
+    if @article.destroy
+      redirect_to admin_blog_articles_path(@blog), notice: 'Article was successfully deleted.'
+    else
+      redirect_to admin_blog_articles_path(@blog), alert: 'Article was not deleted.'
+    end
+  end
+
   private
 
   def set_blog
@@ -48,6 +59,6 @@ class Admin::ArticlesController < AdminController
   end
 
   def article_params
-    params.require(:article).permit(:title, :content, :image)
+    params.require(:article).permit(:title, :content, :thumbnail, images: [])
   end
 end
