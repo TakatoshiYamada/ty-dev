@@ -3,6 +3,8 @@ div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center 
   / TODO: このサイト名を動的に変更する
   / h1.text-4xl.font-extrabold.text-primary.mb-8 @site.name
 
+/image_tag @user.avatar_image, alt: 'User avatar' if @user.avatar_image.attached?
+
 div class="card card-compact w-96 bg-base-100 shadow-xl"
   div class="card-body"
     h2 class="card-title" 作者: user
