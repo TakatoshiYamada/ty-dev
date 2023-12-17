@@ -35,8 +35,9 @@ Rails.application.routes.draw do
       # 記事の管理
       resources :articles
     end
-    # ユーザーの管理
-    resources :users
+
+    # 自分のアカウントの管理
+    resources :users, only: [:show, :edit, :update]
   end
 
 end

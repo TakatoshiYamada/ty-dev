@@ -2,11 +2,16 @@
 
 h1 Dashboard
 
+p Logged in user: #{current_user.name}
+
+/ ユーザー管理
+/ 自分のユーザー情報を確認する
 h2 User Info
-p
-  | Email: #{current_user.email}
-  br
-  | Member since: #{current_user.created_at.strftime('%Y-%m-%d')}
+= link_to 'User Info', admin_user_path(current_user)
+
+/ Webサイト管理
+h2 Websites Info
+/ = link_to 'Website Info', admin_websites_path
 
 / ブログ機能 管理
 h2 Blogs
