@@ -17,7 +17,7 @@ p = @user.updated_at
 h2 user avatar_image
 - if @user.avatar_image.attached?
   = image_tag @user.avatar_image, alt: 'User avatar'
-else
+- else
   p 画像がありません
 
 / 編集ボタン
@@ -25,4 +25,4 @@ else
 
 / キャンセルボタン
 / ダッシュボードに戻る
-= link_to 'Cancel', admin_dashboards_path, class: 'btn btn-outline btn-accent'
+= link_to 'Back', admin_dashboards_path, class: 'btn btn-outline btn-accent'

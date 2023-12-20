@@ -31,6 +31,6 @@ class Admin::UsersController < AdminController
 
   # Strong Parametersを使用して、安全にユーザー情報を更新
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :name, :admin)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :admin, :avatar_image)
   end
 end
