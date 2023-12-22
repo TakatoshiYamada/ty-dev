@@ -28,16 +28,17 @@ Rails.application.routes.draw do
   # 管理者用のルーティング
   namespace :admin do
     # 管理画面ダッシュボード
-    # 各種管理画面へのリンク
+    ## 各種管理画面へのリンク
     resources :dashboards, only: [:index]
+    # ユーザーの管理
+    resources :users, only: [:show, :edit, :update]
+    # ユーザーサイトの管理
+    resources :user_sites, only: [:show, :edit, :update]
     # ブログの管理
     resources :blogs do
       # 記事の管理
       resources :articles
     end
-
-    # 自分のアカウントの管理
-    resources :users, only: [:show, :edit, :update]
   end
 
 end
