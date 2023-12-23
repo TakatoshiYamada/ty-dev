@@ -1,15 +1,13 @@
 div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4"
-  h1 class="text-4xl font-extrabold text-primary mb-8 underline" site_name
-  / TODO: このサイト名を動的に変更する
-  / h1.text-4xl.font-extrabold.text-primary.mb-8 @site.name
-
-/image_tag @user.avatar_image, alt: 'User avatar' if @user.avatar_image.attached?
+  h1 class="text-4xl font-extrabold text-primary mb-8 underline"
+  = @user.user_site.name
+  h2 class="text-4xl font-extrabold text-primary mb-8 underline"
+  = @user.user_site.description
 
 div class="card card-compact w-96 bg-base-100 shadow-xl"
   div class="card-body"
-    h2 class="card-title" 作者: user
-    / TODO: このユーザー名を動的に変更する
-    / p = @blogs.first.user.name
+  h2 class="card-title"
+  = @user.name
 
 div class="social-links mt-8 mb-12"
   h2 class="text-xl font-semibold text-gray-700 mb-4" SNS

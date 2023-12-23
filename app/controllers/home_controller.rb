@@ -4,5 +4,6 @@ class HomeController < ApplicationController
 
   def index
     @blogs = Blog.all
+    @user = User.find(1)
   end
 end
