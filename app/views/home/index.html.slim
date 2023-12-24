@@ -1,3 +1,6 @@
+body[style="background-image: url('#{ @user.user_site.background_image }');"]
+body[style="background-image: url('#{ @user.user_site.background_image }'); background-size: cover; background-repeat: no-repeat; background-position: center;"]
+
 div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4"
   h1 class="text-4xl font-extrabold text-primary mb-8 underline"
   = @user.user_site.name
