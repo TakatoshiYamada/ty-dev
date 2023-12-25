@@ -1,5 +1,7 @@
-body[style="background-image: url('#{ @user.user_site.background_image }');"]
-body[style="background-image: url('#{ @user.user_site.background_image }'); background-size: cover; background-repeat: no-repeat; background-position: center;"]
+- if @user.user_site.background_image.attached?
+  = image_tag @user.user_site.background_image
+- else
+  壁紙画像がありません
 
 div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4"
   h1 class="text-4xl font-extrabold text-primary mb-8 underline"
