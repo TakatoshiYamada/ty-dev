@@ -1,10 +1,9 @@
 / app/views/shared/_header.html.slim
 
-header class="fixed mt-24 w-full z-10 bg-opacity-90 bg-white shadow-md"
-  div class="container mx-auto flex justify-between items-center p-4"
-    h1 class="text-xl font-bold"
-      = link_to "#{@user.user_site.name}", root_path, class: "text-white hover:text-gray-200"
+.header.bg-gray-800.text-black.p-4
+  h1 class="text-xl font-bold"
+    = link_to "#{@user.user_site.name}", root_path
 
-    nav
-      ul class="flex space-x-4"
-        li = link_to "Home", root_path, class: "text-gray-800 hover:underline"
+  nav
+    ul class="flex space-x-4"
+      li = link_to "Home", root_path, class: "text-gray-800 hover:underline"

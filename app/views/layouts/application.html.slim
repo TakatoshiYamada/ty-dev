@@ -1,3 +1,5 @@
+/ app/views/layouts/application.html.slim
+
 doctype html
 html data-theme="lofi"
   head
@@ -10,8 +12,13 @@ html data-theme="lofi"
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
 
-
   body
-    div id="flash"
-      = render 'shared/flash', flash: flash
-    = yield
+    = render 'layouts/header'
+    .background-image.absolute.inset-0.w-full.z-[-1]
+      = image_tag @user.user_site.background_image, class: 'w-full h-screen object-cover'
+
+    .content.relative.z-10.bg-white.p-4.mt-[100vh]
+      #flash.p-2.bg-gray-200.border.border-gray-300.my-4
+        = render 'shared/flash', flash: flash
+      = yield
+    = render 'layouts/footer'
