@@ -29,7 +29,7 @@ class Admin::UserSitesController < AdminController
   end
 
   def user_site_params
-    params.require(:user_site).permit(:name, :description, :background_image)
+    params.require(:user_site).permit(:name, :description, :hero_image)
   end
 
 end
