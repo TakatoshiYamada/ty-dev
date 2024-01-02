@@ -7,4 +7,6 @@ html
     = javascript_importmap_tags 'application'
     = stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    #flash.p-2.bg-gray-200.border.border-gray-300.my-4
+      = render 'shared/flash', flash: flash
     = yield
