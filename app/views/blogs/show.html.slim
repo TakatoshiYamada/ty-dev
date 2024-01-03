@@ -1,3 +1,6 @@
+- if @blog.header_image.present?
+  = image_tag @blog.header_image
+
 h1 = @blog.name
 
 - if @blog.articles.present?

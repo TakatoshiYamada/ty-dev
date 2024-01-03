@@ -1,0 +1,28 @@
+/ app/views/admin/users/show.html.slim
+
+h1 User Info
+
+h2 user name
+p = @user.name
+
+h2 user email
+p = @user.email
+
+h2 user created_at
+p = @user.created_at
+
+h2 user updated_at
+p = @user.updated_at
+
+h2 user avatar_image
+- if @user.avatar_image.attached?
+  = image_tag @user.avatar_image, alt: 'User avatar'
+- else
+  p 画像がありません
+
+/ 編集ボタン
+= link_to 'Edit', edit_admin_user_path(@user), class: 'btn btn-outline btn-accent'
+
+/ キャンセルボタン
+/ ダッシュボードに戻る
+= link_to 'Back', admin_dashboards_path, class: 'btn btn-outline btn-accent'

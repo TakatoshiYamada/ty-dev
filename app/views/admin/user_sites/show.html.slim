@@ -1,0 +1,18 @@
+/ app/views/admin/user_sites/show.html.slim
+
+h1 User Site Info
+
+h2 name
+p = @user_site.name
+
+h2 description
+p = @user_site.description
+
+h2 hero image
+- if @user_site.hero_image.attached?
+  = image_tag @user_site.hero_image
+- else
+  p no hero image
+
+p = link_to 'Edit', edit_admin_user_site_path(current_user)
+p = link_to 'Back', admin_dashboards_path
