@@ -23,6 +23,6 @@ module.exports = {
     require('daisyui'),
   ],
   daisyui: {
-    themes: ["lofi"],
+    themes: ["light", "dark", "lofi"],
   }
 }
