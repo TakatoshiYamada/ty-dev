@@ -1,4 +1,25 @@
 / app/views/shared/_header.html.slim
 
+/ nav class="bg-gray-900 fixed w-full z-10 top-0"
+/   div class="container mx-auto flex items-center justify-between flex-wrap p-5"
+/     div class="flex items-center flex-shrink-0 text-white mr-6"
+/       span class="font-semibold text-xl tracking-tight" TyDev Blog
+/     div class="block lg:hidden"
+/       button class="text-white focus:outline-none focus:shadow-outline"
+/         i class="fas fa-bars"
+/     div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto"
+/       ul class="text-sm lg:flex-grow"
+/         li class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+/           a href="#responsive-header" Home
+/         li class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+/           a href="#responsive-header" About
+/         li class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
+/           a href="#responsive-header" Contact
+
+header
+  div.container.mx-auto.flex.flex-col.items-center.justify-center.h-full
+    h1 class="text-white font-bold text-5xl mb-6" Welcome to TyDev Blog
+    p class="text-white text-lg text-center" Discover the world of coding and technology.
+
 h1 class="text-xl font-bold"
   = link_to "#{@user.user_site.name}", root_path
