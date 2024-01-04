@@ -12,19 +12,11 @@ html data-theme="light"
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
 
-  body
-    / header, footer, contentのサイズはこのファイルで指定
-    / それ以外の内容は各ファイルで指定
-
+  body.bg-gray-100.font-san.leading-normal.tracking-normal
     / ヘッダー領域
-    .header
-      = render 'layouts/header'
-    / 背景画像領域
-    .hero-image.w-full.h-screen.object-cover
-      = render 'layouts/hero_image'
+    = render 'layouts/header'
     / コンテンツ領域
-    .content
+    .main.container.mx-auto.mt-8.mb-8
       = yield
     / フッター領域
-    .footer
-      = render 'layouts/footer'
+    = render 'layouts/footer'

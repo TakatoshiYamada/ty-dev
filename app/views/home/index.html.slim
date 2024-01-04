@@ -1,10 +1,17 @@
 / app/views/home/index.html.slim
 
-h1 class="text-xl font-semibold text-gray-700 mb-4" ブログ
-ul class="list-disc pl-5 mb-8"
+/ 背景画像領域
+/ .hero-image.w-full.h-screen.object-cover
+/   - if @user.user_site&.hero_image&.attached?
+/       = image_tag @user.user_site.hero_image.variant(resize_to_fill: [nil, 1000])
+/   - else
+/     p ヒーロー画像がありません
+
+h1.text-xl.font-semibold.text-gray-700.mb-4 ブログ
+ul.text-primary
   - if @blogs.present?
     - @blogs.each do |blog|
-      li class="mb-2"
-        = link_to blog.name, blog_path(blog), class: 'link link-hover'
+      li.mb-2
+        p.link.link-hover.btn.btn-primary = link_to blog.name, blog_path(blog)
   - else
-    li class="text-gray-600" まだブログがありません
+    li.text-gray-600 まだブログがありません
