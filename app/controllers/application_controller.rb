@@ -8,5 +8,10 @@ class ApplicationController < ActionController::Base
 
   def set_user
     @user = User.find_by(name: ENV['USER_NAME'])
+    if @user.nil?
+      # dotenvで設定したユーザー名が存在しない場合は、エラーを出す
+      # app直下に.envファイルを作成し、USER_NAME=自分のユーザー名を記述する
+      raise "User not found. Please check your .env file."
+    end
   end
 end
