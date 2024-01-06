@@ -7,7 +7,7 @@
 /   - else
 /     p ヒーロー画像がありません
 
-h1.text-xl.font-semibold.text-gray-700.mb-4 ブログ
+h2.text-xl.font-semibold.text-gray-700.mb-4 ブログ
 ul.text-primary
   - if @blogs.present?
     - @blogs.each do |blog|
@@ -15,3 +15,22 @@ ul.text-primary
         p.link.link-hover.btn.btn-primary = link_to blog.name, blog_path(blog)
   - else
     li.text-gray-600 まだブログがありません
+
+/ app/views/home/index.html.slim
+.container.mx-auto
+  / Button
+  button.btn.btn-primary Primary Button
+
+  / Card
+  .card.w-96.bg-primary.text-primary-content
+    .card-body
+      h2.card-title Primary card
+      p This is a card component from DaisyUI.
+      .card-actions.justify-end
+        button.btn.btn-secondary More info
+
+  / Alert
+  .alert.alert-warning
+    div
+      svg ...
+      span Warning: This is a warning alert from DaisyUI.
