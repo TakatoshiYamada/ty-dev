@@ -1,5 +1,8 @@
 / app/views/shared/_header.html.slim
 
-header
-  div.container.mx-auto.flex.flex-col.items-center.justify-center.h-full
-    h1.text-xl.font-bold = link_to "#{@user.user_site.name}", root_path
+div class='navbar bg-base-100'
+  = link_to "#{@user.user_site.name}", root_path
+
+<div class="navbar bg-base-100">
+  <a class="btn btn-ghost text-xl">daisyUI</a>
+</div>
