@@ -1,6 +1,6 @@
 / app/views/layouts/_footer.html.slim
 
-footer.bg-gray-900.text-white
+footer.p-10.bg-neutral.text-neutral-content
   div.flex.flex-col.w-full
-    div.grid.h-20.card.bg-base-300.rounded-box.place-items-center
-      p.text-white.text-center = "Copyright © #{Time.now.year} #{@user.name}. All rights reserved."
+    div.grid.h-20.place-items-center
+      p.text-center = "Copyright © #{Time.now.year} #{@user.name}. All rights reserved."
