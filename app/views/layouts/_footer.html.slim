@@ -1,6 +1,11 @@
 / app/views/layouts/_footer.html.slim
 
-footer.p-10.bg-neutral.text-neutral-content
-  div.flex.flex-col.w-full
-    div.grid.h-20.place-items-center
+footer.footer.footer-center.p-10.bg-primary.text-base-content.rounded
+  nav.grid.grid-flow-col.gap-4
+    a.link.link-hover href="#"  About us
+    a.link.link-hover href="#"  Contact
+    a.link.link-hover href="#"  Jobs
+    a.link.link-hover href="#"  Press kit
+  nav
+    div.grid.grid-flow-col.gap-4
       p.text-center = "Copyright © #{Time.now.year} #{@user.name}. All rights reserved."
