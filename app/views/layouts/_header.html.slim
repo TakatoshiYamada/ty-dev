@@ -4,18 +4,3 @@
   / サイト名
   .flex-1.mt-4.ml-4
     = link_to "#{@user.user_site.name}", root_path, class: "text-xl font-semibold"
-  / プロフィールとメニュー
-  .flex-none
-    ul.flex.space-x-4
-      / ソーシャルリンク
-      li
-        a.social-link[href="#"] Profile
-      / その他のリンク
-      li
-        details
-          summary その他
-          ul.bg-base-100
-            li
-              a[href="#"] Link 1
-            li
-              a[href="#"] Link 2

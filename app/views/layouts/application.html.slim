@@ -12,11 +12,17 @@ html data-theme="light"
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
 
-  body.bg-gray-100.font-san.leading-normal.tracking-normal
+body
+  .flex.flex-col.h-screen
     / ヘッダー領域
-    = render 'layouts/header'
+    /= render 'layouts/header'
+    header
+      .navbar.p-4.bg-base-100
+        / サイト名
+        = link_to "#{@user.user_site.name}", root_path, class: "text-xl font-semibold"
+
     / コンテンツ領域
-    .main.container.mx-auto.mt-8.mb-8
+    main.mx-auto.mt-8.mb-8
       = yield
-    / フッター領域
-    = render 'layouts/footer'
+      footer.footer.footer-center.p-10.bg-primary.text-base-content
+        p = "Copyright © #{Time.now.year} #{@user.name}. All rights reserved."
