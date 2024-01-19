@@ -16,13 +16,14 @@ body
   .flex.flex-col.h-screen
     / ヘッダー領域
     /= render 'layouts/header'
-    header
+    header.flex
       .navbar.p-4.bg-base-100
         / サイト名
         = link_to "#{@user.user_site.name}", root_path, class: "text-xl font-semibold"
 
     / コンテンツ領域
-    main.mx-auto.mt-8.mb-8
+    main.flex
+      .mx-auto.mt-8.mb-8
       = yield
       footer.footer.footer-center.p-10.bg-primary.text-base-content
         p = "Copyright © #{Time.now.year} #{@user.name}. All rights reserved."
