@@ -4,9 +4,9 @@ set -e
 # Remove a potentially pre-existing server.pid for Rails.
 rm -f /opt/ty-dev/tmp/pids/server.pid
 
-# MySQLが起動するまで待つ
-echo "Waiting for MySQL..."
-while ! mysqladmin ping -h"mysql" --silent; do
+# MySQLが起動するのを待つ
+until mysqladmin ping -h"$DB_HOST" --silent; do
+    echo 'waiting for mysqld to be connectable...'
     sleep 1
 done
 echo "MySQL is up and running!"
@@ -25,5 +25,8 @@ if [ ! -f '/opt/ty-dev/node_modules/.yarn-integrity' ]; then
     /opt/ty-dev/bin/importmap pin @hotwired/turbo-rails
   fi
 fi
-# コマンドの実行
+
+# アセットプリコンパイルのコマンドを追加
+bundle exec rails assets:precompile
+
 exec "$@"
