@@ -1,36 +1,18 @@
 / app/views/home/index.html.slim
 
-/ 背景画像領域
-/ .hero-image.w-full.h-screen.object-cover
-/   - if @user.user_site&.hero_image&.attached?
-/       = image_tag @user.user_site.hero_image.variant(resize_to_fill: [nil, 1000])
-/   - else
-/     p ヒーロー画像がありません
-
-h2.text-xl.font-semibold.text-gray-700.mb-4 ブログ
-ul.text-primary
-  - if @blogs.present?
-    - @blogs.each do |blog|
-      li.mb-2
-        p.link.link-hover.btn.btn-primary = link_to blog.name, blog_path(blog)
-  - else
-    li.text-gray-600 まだブログがありません
-
-/ app/views/home/index.html.slim
-.container.mx-auto
-  / Button
-  button.btn.btn-primary Primary Button
-
-  / Card
-  .card.w-96.bg-primary.text-primary-content
-    .card-body
-      h2.card-title Primary card
-      p This is a card component from DaisyUI.
-      .card-actions.justify-end
-        button.btn.btn-secondary More info
-
-  / Alert
-  .alert.alert-warning
-    div
-      svg ...
-      span Warning: This is a warning alert from DaisyUI.
+/ ダミーコンテンツ
+.container.mx-auto.my-10
+  .grid.grid-cols-1.md:grid-cols-2.lg:grid-cols-3.gap-4
+    - 6.times do
+      .card.shadow-lg.rounded-xl
+        .card-body
+          .justify-center.flex
+            .avatar.avatar-xl
+              img src="https://picsum.photos/id/1005/400/400"
+          .justify-center.flex.mt-4
+            .btn.btn-primary = "Button"
+            .btn.btn-secondary.ml-2 = "Button"
+            .btn.btn-accent.ml-2 = "Button"
+            .btn.btn-neutral.ml-2 = "Button"
+            .btn.btn-outline.ml-2 = "Button"
+            .btn.btn-disabled.ml-2 = "Button"
