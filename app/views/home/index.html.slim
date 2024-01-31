@@ -1,18 +1,25 @@
 / app/views/home/index.html.slim
 
-/ ダミーコンテンツ
+/ containerは、ページのコンテンツを中央に配置するためのクラスです。
+/ mx-autoは、左右のマージンを自動で設定するためのクラスです。
+/ my-10は、上下のマージンを10pxに設定するためのクラスです。
 .container.mx-auto.my-10
+  / gridは、グリッドレイアウトを作成するためのクラスです。
+  / grid-cols-1.md:grid-cols-2.lg:grid-cols-3は、画面サイズによってグリッドの列数を変更するためのクラスです。
+  / gap-4は、グリッドの間隔を4pxに設定するためのクラスです。
   .grid.grid-cols-1.md:grid-cols-2.lg:grid-cols-3.gap-4
-    - 6.times do
-      .card.shadow-lg.rounded-xl
-        .card-body
-          .justify-center.flex
-            .avatar.avatar-xl
-              img src="https://picsum.photos/id/1005/400/400"
-          .justify-center.flex.mt-4
-            .btn.btn-primary = "Button"
-            .btn.btn-secondary.ml-2 = "Button"
-            .btn.btn-accent.ml-2 = "Button"
-            .btn.btn-neutral.ml-2 = "Button"
-            .btn.btn-outline.ml-2 = "Button"
-            .btn.btn-disabled.ml-2 = "Button"
+    / cardは、カードを作成するためのクラスです。
+    / shadow-sgは、影をつけるためのクラスです。
+    / rounded-xlは、角を丸くするためのクラスです。
+    .card.shadow-lg.srounded-xl
+      .card-bodys
+        .justify-center.flex
+          .avatar.avatar-xl
+            = image_tag @user_site.hero_image_url
+        .justify-center.flex.mt-4
+          .btn.btn-primary = "Button"
+          .btn.btn-secondary.ml-2 = "Button"
+          .btn.btn-accent.ml-2 = "Button"
+          .btn.btn-neutral.ml-2 = "Button"
+          .btn.btn-outline.ml-2 = "Button"
+          .btn.btn-disabled.ml-2 = "Button"
