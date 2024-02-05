@@ -1,4 +1,5 @@
-class UserSite < ApplicationRecord
+#  サイト情報を管理するモデル　
+class Site < ApplicationRecord
   belongs_to :user
 
   has_one_attached :hero_image

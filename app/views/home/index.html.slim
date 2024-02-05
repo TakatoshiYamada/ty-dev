@@ -15,11 +15,5 @@
       .card-bodys
         .justify-center.flex
           .avatar.avatar-xl
-            = image_tag @user_site.hero_image_url
-        .justify-center.flex.mt-4
-          .btn.btn-primary = "Button"
-          .btn.btn-secondary.ml-2 = "Button"
-          .btn.btn-accent.ml-2 = "Button"
-          .btn.btn-neutral.ml-2 = "Button"
-          .btn.btn-outline.ml-2 = "Button"
-          .btn.btn-disabled.ml-2 = "Button"
+            / ユーザーサイトのプロフィール画像を表示するためのタグです。
+            = image_tag @user.user_site.hero_image_url
