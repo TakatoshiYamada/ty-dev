@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     # ユーザーの管理
     resources :users, only: [:show, :edit, :update]
     # ユーザーサイトの管理
-    resources :user_sites, only: [:show, :edit, :update]
+    resources :sites, only: [:show, :edit, :update]
     # ブログの管理
     resources :blogs do
       # 記事の管理

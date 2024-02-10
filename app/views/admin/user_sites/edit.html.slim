@@ -1,9 +1,9 @@
-/ app/views/admin/user_sites/show.html.slim
+/ app/views/admin/sites/show.html.slim
 
 h1 User Site Edit
 
-= form_with model: [:admin, @user_site], local: true do |form|
-  = render 'shared/error_messages', object: @user_site
+= form_with model: [:admin, @site], local: true do |form|
+  = render 'shared/error_messages', object: @site
 
   .form-group
     = form.label :name
@@ -15,10 +15,10 @@ h1 User Site Edit
 
   .form-group
     = form.label :hero_image
-    - if @user_site.hero_image.present?
-      = image_tag @user_site.hero_image, alt: 'User Site Hero Image'
+    - if @site.hero_image.present?
+      = image_tag @site.hero_image, alt: 'User Site Hero Image'
     = form.file_field :hero_image, class: 'form-control'
 
   = form.submit 'Update', class: 'btn btn-primary'
 
-p = link_to 'Back UserSite Info', admin_user_site_path(current_user)
+p = link_to 'Back Site Info', admin_site_path(current_user)

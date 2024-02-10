@@ -7,4 +7,4 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 User.create(email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true, name: 'admin')
-UserSite.create(user_id: 1, name: 'ty-dev', description: 'This is my Site')
+Site.create(user_id: 1, name: 'ty-dev', description: 'This is my Site')

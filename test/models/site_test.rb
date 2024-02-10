@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Admin::UserSitesControllerTest < ActionDispatch::IntegrationTest
+class SiteTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
