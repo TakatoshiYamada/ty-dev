@@ -11,9 +11,14 @@
     / cardは、カードを作成するためのクラスです。
     / shadow-sgは、影をつけるためのクラスです。
     / rounded-xlは、角を丸くするためのクラスです。
+
+    / サイトタイトルを表示するためのタグです。
+    h1.text-2xl.text-center
+      | @user.site.title
     .card.shadow-lg.srounded-xl
       .card-bodys
         .justify-center.flex
           .avatar.avatar-xl
             / ユーザーサイトのプロフィール画像を表示するためのタグです。
-            //= image_tag @user.site.hero_image_url
+            - if @site.top_image.attached?
+              = image_tag @site.top_image.variant(resize: "300x300")

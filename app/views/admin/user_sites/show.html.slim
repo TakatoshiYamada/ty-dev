@@ -9,8 +9,8 @@ h2 description
 p = @site.description
 
 h2 hero image
-- if @site.hero_image.attached?
-  = image_tag @site.hero_image
+- if @site.top_image.attached?
+  = image_tag @site.top_image
 - else
   p no hero image
 

@@ -14,10 +14,10 @@ h1 User Site Edit
     = form.text_field :description, class: 'form-control'
 
   .form-group
-    = form.label :hero_image
-    - if @site.hero_image.present?
-      = image_tag @site.hero_image, alt: 'User Site Hero Image'
-    = form.file_field :hero_image, class: 'form-control'
+    = form.label :top_image
+    - if @site.top_image.present?
+      = image_tag @site.top_image, alt: 'User Site Hero Image'
+    = form.file_field :top_image, class: 'form-control'
 
   = form.submit 'Update', class: 'btn btn-primary'
 
