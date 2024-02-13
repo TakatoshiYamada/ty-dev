@@ -25,6 +25,9 @@ Rails.application.routes.draw do
     resources :articles, only: [:show]
   end
 
+  # 気に入った言葉を管理する
+  resources :words
+
   # 管理者用のルーティング
   namespace :admin do
     # 管理画面ダッシュボード
