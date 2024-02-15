@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.create(email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true, name: 'admin')
+user = User.create(email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true, name: 'admin')
 
 # サイト情報を作成
-Site.create(user_id: 1, name: 'Takatoshi Yamada', description: 'This is my Site')
+user.site.create(user_id: 1, name: 'Takatoshi Yamada Arcives', description: 'This is my Site')
 
 Site = HomePage.find_or_create_by!(id: 1)
 Site.image.attach(io: File.open(Rails.root.join("public/images/top_image.jpg")), filename: "top_image.jpg")
