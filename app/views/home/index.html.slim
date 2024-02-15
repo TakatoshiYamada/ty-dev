@@ -1,24 +1,8 @@
 / app/views/home/index.html.slim
 
-/ containerは、ページのコンテンツを中央に配置するためのクラスです。
-/ mx-autoは、左右のマージンを自動で設定するためのクラスです。
-/ my-10は、上下のマージンを10pxに設定するためのクラスです。
+/ 画像を一枚表示する
+/ 中央に表示し、上下の余白を設ける
+/ 写真は4*5の比率で編集されているので、それに合わせる
+/ デバイスの幅に合わせて画像を縮小する
 .container.mx-auto.my-10
-  / gridは、グリッドレイアウトを作成するためのクラスです。
-  / grid-cols-1.md:grid-cols-2.lg:grid-cols-3は、画面サイズによってグリッドの列数を変更するためのクラスです。
-  / gap-4は、グリッドの間隔を4pxに設定するためのクラスです。
-  .grid.grid-cols-1.md:grid-cols-2.lg:grid-cols-3.gap-4
-    / cardは、カードを作成するためのクラスです。
-    / shadow-sgは、影をつけるためのクラスです。
-    / rounded-xlは、角を丸くするためのクラスです。
-
-    / サイトタイトルを表示するためのタグです。
-    h1.text-2xl.text-center
-      | @user.site.title
-    .card.shadow-lg.srounded-xl
-      .card-bodys
-        .justify-center.flex
-          .avatar.avatar-xl
-            / ユーザーサイトのプロフィール画像を表示するためのタグです。
-            - if @site.top_image.attached?
-              = image_tag @site.top_image.variant(resize: "300x300")
+  = image_tag @user.site.top_image.variant(resize_to_fill: [500, 400]), class: "w-full"

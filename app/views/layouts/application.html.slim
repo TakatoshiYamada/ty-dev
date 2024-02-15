@@ -1,9 +1,9 @@
 / app/views/layouts/application.html.slim
 
 doctype html
-html data-theme="light"
+html data-theme="lofi"
   head
-    title TyDev
+    title = @user.site.name
     meta name="viewport" content="width=device-width,initial-scale=1"
     = csrf_meta_tags
     = csp_meta_tag
@@ -14,18 +14,29 @@ html data-theme="light"
 
 body class="flex flex-col min-h-screen"
   / ヘッダ
-  .navbar.fixed.top-0.z-50.w-full.flex.justify-between.items-center.p-4.bg-base-100
-    / サイト名
-    .flex-1.mt-4.ml-4
-      = link_to "#{@user.site.name}", root_path, class: "text-xl font-semibold"
+  / サイト名を中央に表示し、上下の余白を設ける
+  / ナビゲーションメニューを右寄せにする
+  / サイト名をクリックするとトップページに遷移する
+  header.header.flex.justify-between.items-center.p-10.primary.text-base-content
+    .flex.justify-center.items-center
+      = link_to @user.site.name, root_path, class: "text-4xl font-bold"
+    .flex.justify-end.items-center
+      - if @user
+        = link_to "Home", root_path, class: "mr-4"
+        = link_to "Profile", user_path(@user), class: "mr-4"
+        = link_to "Sign out", destroy_user_session_path, method: :delete
+      - else
+        = link_to "Sign in", new_user_session_path, class: "mr-4"
+        = link_to "Sign up", new_user_registration_path
   / フラッシュメッセージ
   = render 'layouts/flash'
   / メインコンテンツ
   / ページいっぱいに広げる
-  .flex-grow.pt-20
+  / ヘッダーとフッターの間に余白を設ける
+  .flex-grow.container.mx-auto.p-4
     = yield
   / フッタ
   .flex-shrink-0
-    footer.footer.flex.justify-center.items-center.p-10.bg-primary.text-base-content
+    footer.footer.flex.justify-center.items-center.p-10.primary.text-base-content
       .aside
         p.text-center = "Copyright © #{Time.now.year} #{@user.name}. All rights reserved."
