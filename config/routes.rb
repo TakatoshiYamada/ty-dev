@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   # ホーム画面表示
   root to: 'home#index'
 
+  # ユーザー情報を表示
+  resources :users, only: [:show]
+
   # ブログ記事表示
   resources :blogs, only: [:index, :show] do
     resources :articles, only: [:show]
