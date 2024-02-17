@@ -21,13 +21,16 @@ body class="flex flex-col min-h-screen"
     .flex.justify-center.items-center
       = link_to @user.site.name, root_path, class: "text-4xl font-bold"
     .flex.justify-end.items-center
-      - if @user
-        = link_to "Home", root_path, class: "mr-4"
-        = link_to "Profile", user_path(@user), class: "mr-4"
-        = link_to "Sign out", destroy_user_session_path, method: :delete
-      - else
-        = link_to "Sign in", new_user_session_path, class: "mr-4"
-        = link_to "Sign up", new_user_registration_path
+      / メニュー
+      .dropdown.dropdown-end
+        div.btn.m-1 tabindex="0" role="button" | Click
+        ul.dropdown-content.z-\[1\].menu.p-2.shadow.bg-base-100.rounded-box.w-52 tabindex="0"
+          li
+            a | Item 1
+          li
+            a | Item 2
+          li = link_to "Home", root_path, class: "mr-4"
+          li = link_to "Profile", user_path(@user), class: "mr-4"
   / フラッシュメッセージ
   = render 'layouts/flash'
   / メインコンテンツ

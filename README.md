@@ -38,3 +38,9 @@
 ### フロントエンド更新
 
 - yarn upgrade後、rails assets:precompileをする
+
+### Hoge (call 'Hoge.connection' to establish a connection)エラー対処
+
+```pry
+ActiveRecord::Base.clear_cache!
+```
