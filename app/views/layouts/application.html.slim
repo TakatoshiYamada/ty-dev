@@ -23,14 +23,11 @@ body class="flex flex-col min-h-screen"
     .flex.justify-end.items-center
       / メニュー
       .dropdown.dropdown-end
-        div.btn.m-1 tabindex="0" role="button" | Click
-        ul.dropdown-content.z-\[1\].menu.p-2.shadow.bg-base-100.rounded-box.w-52 tabindex="0"
-          li
-            a | Item 1
-          li
-            a | Item 2
-          li = link_to "Home", root_path, class: "mr-4"
-          li = link_to "Profile", user_path(@user), class: "mr-4"
+        .btn.btn-primary.mr-4 role="buton" tabindex="0"
+          | Menu
+        ul class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52 z-[1]" tabindex="0"
+          li = link_to "Home", root_path
+          li = link_to "Profile", user_path(@user)
   / フラッシュメッセージ
   = render 'layouts/flash'
   / メインコンテンツ
