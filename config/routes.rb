@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # deviseによる認証機能のルーティングを自動生成
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -23,13 +22,13 @@ Rails.application.routes.draw do
   # ユーザー情報を表示
   resources :users, only: [:show]
 
+  # リスト表示
+  resources :lists, only: [:index]
+
   # ブログ記事表示
   resources :blogs, only: [:index, :show] do
     resources :articles, only: [:show]
   end
-
-  # 気に入った言葉を管理する
-  resources :words
 
   # 管理者用のルーティング
   namespace :admin do
