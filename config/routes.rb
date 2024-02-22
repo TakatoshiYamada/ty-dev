@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   # リスト表示
-  resources :lists, only: [:index]
+  resources :lists, only: [:index, :show]
 
   # ブログ記事表示
   resources :blogs, only: [:index, :show] do
