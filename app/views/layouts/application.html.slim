@@ -28,7 +28,7 @@ body class="flex flex-col min-h-screen"
         ul class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52 z-[1]" tabindex="0"
           li = link_to "Home", root_path
           li = link_to "Profile", user_path(@user)
-          li = link_to "List", list_path
+          li = link_to "List", lists_path
   / フラッシュメッセージ
   = render 'layouts/flash'
   / メインコンテンツ
