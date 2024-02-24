@@ -3,7 +3,7 @@
 doctype html
 html data-theme="lofi"
   head
-    title = @user.site.name
+    title = Site.last.name
     meta name="viewport" content="width=device-width,initial-scale=1"
     = csrf_meta_tags
     = csp_meta_tag
@@ -19,7 +19,7 @@ body class="flex flex-col min-h-screen"
   / サイト名をクリックするとトップページに遷移する
   header.header.flex.justify-between.items-center.p-10.primary.text-base-content
     .flex.justify-center.items-center
-      = link_to @user.site.name, root_path, class: "text-4xl font-bold"
+      = link_to Site.last.name, root_path, class: "text-4xl font-bold"
     .flex.justify-end.items-center
       / メニュー
       .dropdown.dropdown-end
