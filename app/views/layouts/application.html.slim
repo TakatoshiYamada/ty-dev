@@ -3,7 +3,7 @@
 doctype html
 html data-theme="lofi"
   head
-    title = Site.last.name
+    title = @site.name
     meta name="viewport" content="width=device-width,initial-scale=1"
     = csrf_meta_tags
     = csp_meta_tag
@@ -27,7 +27,7 @@ body class="flex flex-col min-h-screen"
           | Menu
         ul class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52 z-[1]" tabindex="0"
           li = link_to "Home", root_path
-          li = link_to "Profile", user_path(@user)
+          li = link_to "Profile", user_path(1)
           li = link_to "List", lists_path
   / フラッシュメッセージ
   = render 'layouts/flash'

@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @blogs = Blog.all
+    # Menuの項目を表示するためのデータを取得
+    @lists = List.all
   end
 end

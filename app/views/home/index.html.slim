@@ -4,4 +4,4 @@
 / 中央に表示し、上下の余白を設ける
 / 写真は4*5の比率で編集されているので、それに合わせる
 / デバイスの幅に合わせて画像を縮小する
-= image_tag @user.site.top_image.variant(resize_to_fill: [500, 400]), class: "w-full"
+= image_tag @site.top_image.variant(resize_to_fill: [500, 400]), class: "w-full"
