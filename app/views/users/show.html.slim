@@ -1,13 +1,19 @@
 / Plofile画面
 / 自分のプロフィールを表示する
 
-h1 プロフィール
+/ DaisyUIのカードを使用
+.card
+  .card-body
+    / プロフィール画像
+    img src = @user.image.url, class = "rounded-full w-32 h-32 mx-auto"
 
-h2 ユーザー名
-p = @user.name
+    h1 プロフィール
 
-h2 メールアドレス
-p = @user.email
+    h2 ユーザー名
+    p = @user.name
 
-h2 経歴
-p = @user.biography
+    h2 メールアドレス
+    p = @user.email
+
+    h2 経歴
+    p = @user.biography
