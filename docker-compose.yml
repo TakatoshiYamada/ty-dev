@@ -13,7 +13,8 @@ services:
 
   rails:
     build: .
-    entrypoint: bundle exec rails s -p 3000 -b '0.0.0.0'
+    entrypoint: /opt/ty-dev/entrypoint.sh
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     ports:
       - 3000:3000
     volumes:
