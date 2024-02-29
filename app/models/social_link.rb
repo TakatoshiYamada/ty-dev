@@ -1,4 +1,5 @@
-class SocialProfile < ApplicationRecord
+class SocialLink < ApplicationRecord
+  # user have many social_links
   belongs_to :user
 
   # ユーザーIDの存在を確認
