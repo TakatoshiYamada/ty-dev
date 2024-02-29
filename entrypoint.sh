@@ -6,9 +6,8 @@ echo "Attempting to remove server.pid..."
 rm -f /opt/ty-dev/tmp/pids/server.pid
 echo "server.pid removed"
 
-
 # MySQLが起動するのを待つ
-until mysqladmin ping -h"$DB_HOST" --silent; do
+until mysqladmin ping -h "$DB_HOST" --silent; do
     echo 'waiting for mysqld to be connectable...'
     sleep 1
 done

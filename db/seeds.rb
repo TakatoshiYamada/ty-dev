@@ -7,21 +7,18 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # ユーザーを作成
-user = User.create(
-  email: 'admin@example.com',
-  password: 'password',
-  password_confirmation: 'password',
-  admin: true,
-  name: 'admin',
-  biography: 'This is Admin'
-  )
+## emailが存在しない場合のみ作成
+user = User.find_or_create_by!(email: 'admin@example.com') do |user|
+  user.password = 'password'
+  user.password_confirmation = 'password'
+  user.admin = true
+  user.name = 'admin'
+  user.biography = 'This is Admin'
+end
 
-# サイトを作成
-site = user.create_site(
-  user_id: 1,
-  name: 'Takatoshi Yamada Arcives',
-  description: 'This is my Site'
-  )
+# サイトが存在しない場合のみ作成、存在する場合は更新
+site = user.site || user.build_site(name: 'Takatoshi Yamada Archives', description: 'This is my Site')
+site.save!
 
 # トップ画像をアタッチ
 site.top_image.attach(

@@ -9,10 +9,12 @@ services:
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - rails
-    restart: always
+    #restart: always
 
   rails:
     build: .
+    environment:
+      DB_HOST: mysql
     entrypoint: /opt/ty-dev/entrypoint.sh
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     ports:
@@ -22,7 +24,7 @@ services:
     working_dir: /opt/ty-dev
     depends_on:
       - mysql
-    restart: always
+    #restart: always
     # binding.pryを使う場合はコメントアウトを外す
     tty: true
     stdin_open: true
@@ -31,11 +33,10 @@ services:
     image: mysql:8
     environment:
       MYSQL_ROOT_PASSWORD: admin
-      DB_HOST: mysql
     volumes:
       - mysql_data:/var/lib/mysql
       - ./docker/mysql/conf.d/charset.cnf:/etc/mysql/conf.d/charset.cnf
-    restart: always
+    #restart: always
 
 volumes:
   mysql_data:
