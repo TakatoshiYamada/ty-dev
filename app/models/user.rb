@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :lists
   # user have many blogs
   has_many :blogs
-
+  # user have one avatar_image
   has_one_attached :avatar_image
 
   # メールアドレスの存在とフォーマットの確認
