@@ -6,14 +6,14 @@ class User < ApplicationRecord
 
   # user have one site
   has_one :site
-  # user have many social_profiles
-  has_many :social_profiles, dependent: :destroy
+  # user have many social_links
+  has_many :social_links, dependent: :destroy
   # user have many list
   has_many :lists
   # user have many blogs
   has_many :blogs
   # user have one avatar_image
-  has_one_attached :avatar_image
+  has_one_attached :avatar
 
   # メールアドレスの存在とフォーマットの確認
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }

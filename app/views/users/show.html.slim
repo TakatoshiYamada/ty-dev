@@ -2,11 +2,13 @@
 / 自分のプロフィールを表示する
 
 / DaisyUIのカードを使用
+/ 左に画像
+/ 右にユーザー名、メールアドレス、経歴を表示
 .card
   .card-body
     / プロフィール画像
-    img src = @user.image.url, class = "rounded-full w-32 h-32 mx-auto"
-
+    - if @user.avatar.attached?
+      = image_tag @user.avatar, class: "rounded-full w-32 h-32"
     h1 プロフィール
 
     h2 ユーザー名
