@@ -25,3 +25,9 @@ site.top_image.attach(
   io: File.open(Rails.root.join("public/images/top_image.jpg")),
   filename: "top_image.jpg"
   )
+
+# ユーザーのアバター画像をアタッチ
+user.avatar.attach(
+  io: File.open(Rails.root.join("public/images/avatar.jpg")),
+  filename: "avatar.jpg"
+  )
