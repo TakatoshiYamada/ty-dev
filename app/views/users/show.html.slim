@@ -1,19 +1,22 @@
-/ Plofile画面
-/ 自分のプロフィールを表示する
+.profile-container.mx-auto.max-w-4xl
 
-/ DaisyUIのカードを使用
-.card
-  .card-body
-    / プロフィール画像
+  .avatar-container.text-center.rounded
     - if @user.avatar.attached?
-      = image_tag @user.avatar, class: "rounded-full w-32 h-32"
-    h1 プロフィール
+      = image_tag @user.avatar
 
-    h2 ユーザー名
-    p = @user.name
-
-    h2 メールアドレス
-    p = @user.email
-
-    h2 経歴
-    p = @user.biography
+  .user-info.table-auto.text-center
+    table.table-fixed.border-collapse
+      thead
+        tr
+          th.border.px-4.py-2.text-lg.font-semibold フィールド
+          th.border.px-4.py-2.text-lg.font-semibold 値
+      tbody
+        tr
+          td.border.px-4.py-2 ユーザー名
+          td.border.px-4.py-2 = @user.name
+        tr
+          td.border.px-4.py-2 メールアドレス
+          td.border.px-4.py-2 = @user.email
+        tr
+          td.border.px-4.py-2 経歴
+          td.border.px-4.py-2 = @user.biography
