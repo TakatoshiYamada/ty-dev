@@ -49,6 +49,11 @@
 
 - yarn upgrade後、rails assets:precompileをする
 
+```bash
+yarn upgrade tailwindcss --latest
+rails assets:precompile
+```
+
 ### Hoge (call 'Hoge.connection' to establish a connection)エラー対処
 
 ```pry
