@@ -1,22 +1,37 @@
-.profile-container.mx-auto.max-w-4xl
+/ プロフィール画像
+.flex.h-screen
+  .flex-1.flex.justify-center.item-center.p-4
+    = image_tag @user.avatar, class: "max-w-xs object-cover" if @user.avatar.attached?
+  .flex-1.flex.flex-col.p-10
+    .mb-4.flex
+      span.font-bold.text-lg Name:
+      span.ml-2.text-lg = @user.name
+    .mb-4.flex
+      span.font-bold.text-lg Age:
+      span.ml-2.text-lg 35
+    .mb-4.flex
+      span.font-bold.text-lg Birthday:
+      span.ml-2.text-lg 1988
+    .mb-4.flex
+      span.font-bold.text-lg Origin:
+      span.ml-2.text-lg ori
+    .flex.flex-col
+      span.font-bold.text-lg Education
+      ul.list-disc.ml-5
+        li ad
+        li ad
 
-  .avatar-container.text-center.rounded
-    - if @user.avatar.attached?
-      = image_tag @user.avatar
-
-  .user-info.table-auto.text-center
-    table.table-fixed.border-collapse
-      thead
-        tr
-          th.border.px-4.py-2.text-lg.font-semibold フィールド
-          th.border.px-4.py-2.text-lg.font-semibold 値
-      tbody
-        tr
-          td.border.px-4.py-2 ユーザー名
-          td.border.px-4.py-2 = @user.name
-        tr
-          td.border.px-4.py-2 メールアドレス
-          td.border.px-4.py-2 = @user.email
-        tr
-          td.border.px-4.py-2 経歴
-          td.border.px-4.py-2 = @user.biography
+/
+  クリアな構造: 読み手があなたの経歴をすぐに理解できるように、クリアで簡潔な構造にしましょう。例えば、「職歴」「学歴」「スキル」「プロジェクト」「趣味・関心事」などのセクションに分けると良いでしょう。
+  
+  職歴の詳細: 各職歴では、役職、勤務期間、主な業務内容、達成した成果を具体的に記述します。数字を用いて成果を示せると、より説得力が増します。
+  
+  スキルの強調: 特にアピールしたいスキルや資格があれば、それらを明確に示しましょう。また、それらのスキルがどのように以前の職場で役立ったのかの具体例を挙げると良いです。
+  
+  パーソナリティの表現: あなたの人柄や価値観を表す短いセクションを設けることで、職歴やスキルだけでない総合的な魅力を伝えられます。
+  
+  デザインと読みやすさ: ウェブサイトは視覚的な印象も大切です。清潔感があり、読みやすいデザインを心がけ、モバイルフレンドリーであることも重要です。
+  
+  連絡先の明記: 訪問者があなたに容易に連絡が取れるよう、メールアドレスや連絡フォームへのリンクを設置しましょう。
+  
+  更新の継続: 経歴は定期的に更新し、最新の情報を保つようにしましょう。
