@@ -25,11 +25,6 @@ Rails.application.routes.draw do
   # リスト表示
   resources :lists
 
-  # ブログ記事表示
-  resources :blogs, only: [:index, :show] do
-    resources :articles, only: [:show]
-  end
-
   # 管理者用のルーティング
   namespace :admin do
     # 管理画面ダッシュボード
@@ -39,11 +34,6 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update]
     # ユーザーサイトの管理
     resources :sites, only: [:show, :edit, :update]
-    # ブログの管理
-    resources :blogs do
-      # 記事の管理
-      resources :articles
-    end
   end
 
 end

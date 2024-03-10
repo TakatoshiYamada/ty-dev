@@ -10,8 +10,6 @@ class User < ApplicationRecord
   has_many :social_links, dependent: :destroy
   # user have many list
   has_many :lists
-  # user have many blogs
-  has_many :blogs
   # user have one avatar_image
   has_one_attached :avatar
 
