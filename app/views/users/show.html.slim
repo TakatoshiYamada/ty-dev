@@ -4,7 +4,7 @@
     = image_tag @user.avatar, class: "w-auto object-cover" if @user.avatar.attached?
   .flex-1.flex.flex-col.p-10
     .mb-4.flex
-      span.font-bold.text-lg Name:
+      span.font-bold.text-lg = User.human_attribute_name("name") + ":"
       span.ml-2.text-lg = @user.name
     .mb-4.flex
       span.font-bold.text-lg Age:
